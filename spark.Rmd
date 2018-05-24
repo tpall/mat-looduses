@@ -1,0 +1,21 @@
+---
+
+---
+
+
+```{r, echo=FALSE}
+readr::read_rds("data/pvalue_spark_table.rds")
+```
+
+```{r, include=FALSE}
+library(tidyverse)
+library(sparkline)
+library(formattable)
+# Way to add sparkline dependencies
+mtcars %>%
+  group_by(cyl) %>%
+  summarise(hp = spk_chr(hp, type = "box")) %>%
+  formattable() %>%
+  as.htmlwidget() %>%
+  spk_add_deps()
+```

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Oomikaeksperimentide kvaliteedi hindamine P väärtuste põhjal</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Taavi Päll" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Oomikaeksperimentide kvaliteedi hindamine P väärtuste põhjal
+## e. Teadustegevuse jääkides sobramas
+### Taavi Päll
+### 26. mai 2018
+
+---
+
+
+
+
+## Müra vs signaal
+
+- Uute teadmiste hankimine sõltub tehniliselt sellest kui edukalt õnnestub andmete mürast signaal ülesse leida  
+
+- See kehtib ka oomika ekperimentide korral, kus viiakse läbi paraleelselt tuhandeid mõõtmisi ja detekteeritakse samuti kuni tuhandeid efekte      
+
+- väike osa leitud efektidest on tõelised ja teaduslikult huvitavad. Kuidas teha vahet mis on mis?     
+
+---
+
+## Top table
+
+- Oomika eksperimendid jõuavad teaduspublikatsioonidesse peamiselt nn. *top* tabelitena artikli lisades, kus on välja toodud mingi väike hulk enim muutunud tunnuseid/geene    
+
+- Peamiseks tulemuseks on üks-kaks geeni, mis on "edukalt" läbinud ka valideerimise ortogonaalsetes katsetes    
+
+--
+
+- Tundub huvitav.., kas tasuks replitseerida&lt;sup&gt;1&lt;/sup&gt;? 
+
+.footnote[[1] Replitseerimine -- uute andmete korjamine kontrollimaks teaduslikke väiteid. Reprodutseerimine keskendub eelkõige andmete analüüsi korratavus. Reprodutseeritavus toetab, kuid ei taga teaduslike väidete paikapidavust.]
+
+---
+
+## 
+
+- This makes it desirable to first estimate in silico, which studies are worth replicating in the lab, and how to best replicate them
+
+---
+
+## QC checklist
+
+- Reprodutseeritavus: kas andmed on reanalüüsiks kasutatavad
+- Vastavus NIH GEO andmebaasi deponeerimise reeglitega?
+- Kui palju GEO andmesette sisaldab ka P väärtuste tabeleid?
+- P histogrammid – kui palju katseid on hästi/halvasti disainitud või analüüsitud?
+
+---
+
+## P väärtuste jaotus 
+
+&lt;img src="index_files/figure-html/unnamed-chunk-1-1.png" style="display: block; margin: auto;" /&gt;
+
+???
+
+Ühtlane jaotus 0 ja 1 vahel sisaldab nö null p väärtuseid.
+
+That peak close to 0 is where your alternative hypotheses live- along with some potential false positives. If we split this up into nulls and alternatives, it might look like this:
+
+---
+
+background-image: url(http://varianceexplained.org/figs/2014-12-15-interpreting-pvalue-histogram/plot_melted-1.png)
+class: center, bottom
+
+.footnote[
+Pilt: Tüüpilised P väärtuste histogrammid 
+@[Variance explained](http://varianceexplained.org/statistics/interpreting-pvalue-histogram/).
+]
+
+???
+
+Image credit: [Variance explained](http://varianceexplained.org/statistics/interpreting-pvalue-histogram/)
+
+---
+
+## HT-seq andmekogude arv NIH andmebaasis kasvab kiiresti
+
+- We queried the NCBI GEO database for "expression profiling by high throughput sequencing"
+- Query retrieved 13575 datasets, first set was published at 2017-06-19
+- 68% of GEO data sets (9194) contain data from mouse or human origin
+- 88% of human and mouse data sets are linked to their primary publication. 
+- The proportion of datasets with publications is lower when other taxa are used as model organisms 78%
+
+&lt;img src="img/fig1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+For the human and mouse subset, we were able to identify supplementary files for 100% (13560) of GEO series.
+The data sets lacking public supplementary files nevertheless show 73% publication rate (95%CI, 44.9% to 92.2%) which is similar to data sets with supplementary files.
+
+---
+
+## Compliance with GEO database submission requirements
+
+- GEO archive has three required components: 
+      1. metadata, 
+      1. processed data, and 
+      1. raw data. 
+
+- Minimally, processed files are required to contain raw or normalized sequence read counts, or peak files of ChIP-Seq data
+
+---
+
+## Most common file names 
+
+- 'RAW.tar' archive and associated automatically generated 'filelist.txt' are the most common files
+- 'RAW.tar' archive contains one file per sample and samples can be directly mapped to metadata by using sample name
+- Other common files contain annotations, 'readme.txt' and processed data: commonly sequence read counts, gene expression analysis results or ChIP-Seq peak counts.
+
+&lt;img src="img/fig2.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Which files contain P values?
+
+- Sequence read counts can be either as raw read counts or normalised read counts. 
+      - Gene expression analysis of HT-seq data is commonly performed by fitting models to discrete sequence read count data 
+      - Normalised sequence read counts are used for plotting and visual evaluation of the analysis results, but cannot be used to directly reproduce gene expression analysis
+
+- Tables containing top-ranked genes/features (top tables) from gene expression analysis with complete set of raw P values allow direct evaluation of the data and analysis quality underlying tested hypothesis.
+
+- We excluded from downloading binary files, annotations, raw data, graphics, and other non tabular formats
+
+---
+
+## Filter
+
+- File filtering reduced the number of files by 60% and GEO series by 51%   
+   
+- Downloaded dataset consisted 13526 files from 6660 GEO series
+
+&lt;img src="img/fig5.png" style="display: block; margin: auto;" /&gt;
+
+.footnote[Arrows from left to right, (1) GEO sets with supplementary files, (2) filter out RAW.tar and filelist.txt files from supplementary file names, (3) supplementary files with flat table formats that were downloaded, (4) tables with p values. Number of p value sets is the number of sets with &gt;4000 features.]
+
+---
+
+## Size of the submitted datasets
+
+- Mean number of samples was 27 and median 8. Most frequent sample size was 6. 
+- Mean number of features was 41935 and median 21899 
+
+&lt;img src="img/fig6.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Number of true nulls
+
+&lt;img src="img/fig7.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Top ajakirjad mis publitseerivad HT-seq katseid
+
+&lt;img src="img/fig8.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Kas tsiteeritavus on seotud katse õnnestumisega
+
+&lt;img src="img/fig9.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+##  Summary of histogram types in supplementary files of GEO HT-seq submissions
+
+&lt;img src="img/table1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+[Tabel](spark.html)
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
