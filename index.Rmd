@@ -73,7 +73,7 @@ class: inverse, middle, center
 
 --
 
-- Juhuslike P väärtuste jaotus tuleneb [järgmisest seosest](https://stats.stackexchange.com/questions/10613/why-are-p-values-uniformly-distributed-under-the-null-hypothesis#10617), tingimusel kui T on juhuslik muutuja kumulatiivse jaotusega $F(T) \equiv Pr(T<t)$ kõigi t väärtuste korral ja F on pööratav:
+- Juhuslike P väärtuste jaotus tuleneb [järgmisest seosest](https://stats.stackexchange.com/questions/10613/why-are-p-values-uniformly-distributed-under-the-null-hypothesis#10617), tingimusel kui T on juhuslik muutuja kumulatiivse jaotusega $F(T) \equiv Pr(T<t)$:
 
 $$Pr(P<p) = Pr(F(T)<p) = Pr(T<F^{-1}(p)) = F(F^{-1}(p)) = p$$
 
@@ -82,6 +82,26 @@ $$Pr(P<p) = Pr(F(T)<p) = Pr(T<F^{-1}(p)) = F(F^{-1}(p)) = p$$
 - Ühtlase jaotuse eeldused:
       - nullhüpotees kehtib
       - tegemist on pideva jaotusega
+
+---
+
+## Test statistik pidevast jaotusest
+
+Jaotuse kuju ei määra mitte hüpotees vaid parameetrid ([Murdoch, 2008](https://www.tandfonline.com/doi/abs/10.1198/000313008X332421))
+
+$$H_0: \mu \le 0 \\ H_a: \mu \gt 0$$
+
+```{r, echo=FALSE, out.width='60%', fig.align='center'}
+knitr::include_graphics("img/murdoch2008-fig2.png")
+```
+
+---
+
+## Test statistik diskreetsest jaotusest 
+
+```{r, echo=FALSE, out.width='60%', fig.align='center'}
+knitr::include_graphics("img/murdoch2008-fig3.png")
+```
 
 ---
 
@@ -125,8 +145,9 @@ class: middle, center
 
 ## HT-seq andmekogude arv NIH andmebaasis kasvab kiiresti
 
-- Me otsisime NCBI GEO andmebaasist andmesette kasutatdes otsingusõna "expression profiling by high throughput sequencing"
-- Tulemuseks leidsime 13575 andmekogu, millest esimene publitseeriti 2017-06-19
+- Me otsisime NCBI GEO andmebaasist andmesette kasutades otsingusõna 
+`"expression profiling by high throughput sequencing"
+- Tulemuseks leidsime 13575 andmekogu, millest esimene publitseeriti 2006-09-08
 - 68% GEO andmekogudest (9194) sisaldavad inimese või hiire järjestusi
 
 ```{r, echo=FALSE, out.width='60%', fig.align='center'}
