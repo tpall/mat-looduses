@@ -134,73 +134,70 @@ background-size: cover
 class: middle, center
 
 
-# Sekveneerimisandmed NIH Entrez andmebaasis
+# HT-seq datasets at Entrez GEO database
 
 ---
 
-## HT-seq andmekogude arv NIH andmebaasis kasvab kiiresti
+## GEO series submission dynamics and associated publications of HT-seq data
 
-- Me otsisime NCBI GEO andmebaasist andmesette kasutades otsingusõna 
-`"expression profiling by high throughput sequencing"
-- Tulemuseks leidsime 13575 andmekogu, millest esimene publitseeriti 2006-09-08
-- 68% GEO andmekogudest (9194) sisaldavad inimese või hiire järjestusi
+- We queried the NCBI GEO database for `"expression profiling by high throughput sequencing"`
+- Query retrieved 13575 datasets
+- First HT-seq data set was submitted to GEO database at 2006-09-08
+- 68% of GEO data sets (9194) contain data from mouse or human origin 
 
 &lt;img src="img/fig1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-## GEO andmebaasi reeglid
+## GEO data submission rules
 
-- GEO arhiivil on kolm kohustuslikku komponenti: 
-      1. metaandmed, 
-      1. protsessitud andmed 
-      1. toorandmed
-
-- Protsessitud andmed sisaldavad minimaalselt näiteks kas toor või normaliseeritud sekventside arvu, või ChIP-Seq eksperimentide korral nn. piigifaile (peak files)
-
+- We sought to determine the compliance with the formal requirements for GEO data submission (https://www.ncbi.nlm.nih.gov/geo/info/seq.html). 
+- This pertains to the reproducibitly of data analysis
+- GEO archive has three required components: 
+        1. metadata, 
+        1. processed data, and 
+        1. raw data
+        
 ---
 
-## Publitseerimine ja lisafailid
+## Publications and supplementary files
 
-- 88% inimese või hiire andmekogudest on seotud ka primaarse publikatsiooniga 
-      - Teiste mudelorganismide puhul on see protsent mõnevõrra madalam: 78%
+- 88% of human and mouse data sets are linked to their primary publication. 
+- The proportion of datasets with publications is lower when other taxa are used as model organisms 78%
       
-- Peaaegu kõik GEO andmekogud (13560/13575) sisaldavad lisafaile (supplementary files)
+- Almost all GEO datasets (13560/13575) contain supplementary files
 
-- Neid väheseid andmekogusid, millel puuduvad ülesse laaditud lisafailid, publitseeritakse vaatamata sellele küllalt hästi 73% publication rate (95%CI, 44.9% to 92.2%) which is similar to data sets with supplementary files.
+- The data sets lacking public supplementary files nevertheless show 73% publication rate which is similar to data sets with supplementary files
 
 
 ---
 
-## Kõige tavalisemad lisafilinimed
+## Filename extensions and common stubs of supplementary file names
 
-- 'RAW.tar' arhiiv ja sellega seotud 'filelist.txt' on kõige tavalisemad
-- 'RAW.tar' sisaldab ühte faili proovi kohta ja need failid on üle failinime seotud metaandmetega
-- Teised tavalisemad failinimed on annotatsioonid, 'readme.txt' ja protsessitud andmed: tavaliselt sekventsi arvud, geeniekspressiooni analüüsi tulemused (P väärtused!) ja ChIP-Seq *peak counts*id.
+- RAW.tar files are included in 57% (7722) of GEO series, whereas only RAW.tar and filelist.txt is present in 46% (6201) GEO series
+- 'RAW.tar' archive contains one file per sample and samples can be directly mapped to metadata by using sample name
+- Other common files contain annotations ‘readme.txt’ and processed data: commonly sequence read counts, gene expression analysis results or ChIP-Seq peak counts
 
 &lt;img src="img/fig2.png" width="75%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-## Missugused failid sisaldavad P väärtuseid?
+## Which supplementary files contain P values?
 
-Praktilistest kaalutlustest lähtuvalt ei tahtnud me kõiki oma seti 34136 GEO lisafaili alla laadida. Pidime tegema valikuid.
+- Downloading all 34136 GEO supplementary files was not practical
 
-- Sekventsijärjestuste arvu esitatakse lisafailides kas toorandmetena (positiivsed täisarvud, diskreetne jaotus) või juba normaliseerituna (pidev jaotus) 
-      - HT-seq andmete põhjal analüüsitakse geeniekspressiooni tavaliselt kasutades toorandmeid 
-      - Normaliseeritud andmeid kasutatakse ainult visualiseerimiseks, kuid need ei sobi differentiaalse ekspressiooni analüüsi reprodutseerimiseks
+- Sequence read counts can be either as raw read counts or normalised read counts
+      - Gene expression analysis of HT-seq data is commonly performed by fitting models to discrete sequence read count data
+      - Normalised sequence read counts are used for plotting and visual evaluation of the analysis results, but cannot be used to directly reproduce gene expression analysis
 
-&gt; Sellised tablid mis sisaldavad juba eksprssioonianalüüsi tulemusi koos adjusteerimata P väärtustega võimaldavad otsest kvaliteedi kontrolli
-
-- Me välistasime pildifailid, binaarsed failid vms. failiformaadid mille puhul võis ennustada, et see ei sisalda kindlasti P väärtusi 
+- To reduce number of files to be downloaded from GEO database, based on file extensions and filenames, we excluded from the dataset files that most plausibly don’t contain final processed data in a tabular format, such as binary files, annotations, raw data, graphics, and other non tabular files 
 
 ---
 
 ## Filter
 
-- Failide filtreerimine nimede ja formaatide põhjal vähendas failide arvu ~60% ja GEO seeriate arvu 51%
-   
-- Alla laadidav andmesett koosnes 13526 failist 6660 GEO seeriast
+- Filtype filter reduced the number of files by 60% and GEO series by 51%   
+- Resulting dataset consisted of 13526 files from 6660 GEO series to be downloaded    
 
 &lt;img src="img/fig5.png" style="display: block; margin: auto;" /&gt;
 
@@ -210,44 +207,45 @@ Praktilistest kaalutlustest lähtuvalt ei tahtnud me kõiki oma seti 34136 GEO l
 
 class: inverse, middle, center
 
-# Tulemused
+# Results
 
 ---
 
-## HT-seq andmesettide suurus
+## Number of samples and features of HT-seq experiments
 
-- Katsetes on keskmiselt 27 proovi ja mediaan on 8. Kõige sagedamini on katses 6 proovi
-- Keskmine arv detekteeritud "geene" on 41935 ja mediaan 21899 
+- Mean number of samples was 27 and median 8. Most frequent sample size was 6     
+
+- Mean number of features was 41935 and median 21899     
 
 &lt;img src="img/fig6.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
-## Tõeliste null hüpoteeside hulk
+## Proportion of true null hypotheses in P value sets
 
 &lt;img src="img/fig7.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
-## Top ajakirjad mis publitseerivad HT-seq katseid
+## Top journals publishing HT-seq data
 
 &lt;img src="img/fig8.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
-## Kas tsiteeritavus on seotud katse õnnestumisega
+## Citations versus the number of true nulls
 
 &lt;img src="img/fig9.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
-##  Histogram tüübid GEO HT-seq andmesettides
+##  P value histogram types
 
 &lt;img src="img/table1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
-## Ebainformatiivsete geenide filtreerimine
+## Filtering noninformative features
 
 &lt;img src="img/spark.png" style="display: block; margin: auto;" /&gt;
 
