@@ -273,6 +273,10 @@ knitr::include_graphics("img/table1.png")
 
 ## Ebainformatiivsete geenide filtreerimine
 
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("img/spark.png")
+```
+
 - [Tabel](spark.html)
 
 ---
