@@ -210,7 +210,7 @@ Praktilistest kaalutlustest lähtuvalt ei tahtnud me kõiki oma seti 34136 GEO l
 
 ## Filter
 
-- Failide filtreerimine vähendas failide arvu ~60% ja GEO seeriate arvu 51%   
+- Failide filtreerimine nimede ja formaatide põhjal vähendas failide arvu ~60% ja GEO seeriate arvu 51%
    
 - Alla laadidav andmesett koosnes 13526 failist 6660 GEO seeriast
 
@@ -228,10 +228,10 @@ class: inverse, middle, center
 
 ---
 
-## Size of the submitted datasets
+## HT-seq andmesettide suurus
 
-- Mean number of samples was 27 and median 8. Most frequent sample size was 6. 
-- Mean number of features was 41935 and median 21899 
+- Katsetes on keskmiselt 27 proovi ja mediaan on 8. Kõige sagedamini on katses 6 proovi
+- Keskmine arv detekteeritud "geene" on 41935 ja mediaan 21899 
 
 ```{r, echo=FALSE, fig.align='center'}
 knitr::include_graphics("img/fig6.png")
@@ -239,7 +239,7 @@ knitr::include_graphics("img/fig6.png")
 
 ---
 
-## Number of true nulls
+## Tõeliste null hüpoteeside hulk
 
 ```{r, echo=FALSE, fig.align='center'}
 knitr::include_graphics("img/fig7.png")
@@ -263,7 +263,7 @@ knitr::include_graphics("img/fig9.png")
 
 ---
 
-##  Summary of histogram types in supplementary files of GEO HT-seq submissions
+##  Histogram tüübid GEO HT-seq andmesettides
 
 ```{r, echo=FALSE, fig.align='center'}
 knitr::include_graphics("img/table1.png")
@@ -271,10 +271,28 @@ knitr::include_graphics("img/table1.png")
 
 ---
 
-## Ebainformatiivsete geenide filtreerimine parandab histogrammide kvaliteeti
+## Ebainformatiivsete geenide filtreerimine
 
 - [Tabel](spark.html)
 
+---
 
+## Kokkuvõtvalt
 
+- HT-seq katsete andmeanalüüsi tulemused võiksid olla oluliselt paremini esitatud GEO andmebaasis
+- Olemasolevate P väärtuste histogrammide põhjal on umbes 2/3 juhul puudusi katse disainis ja statistilises analüüsis
+- Lihtsaim meetod analüüsi parandamiseks on ebainformatiivsete tunnuste välja filtreerimine
+- P väärtuste histogrammid peaks olema kohustuslik osa oomika eksperimentide raporteerimisel ja publitseerimisel
+
+---
+
+## Tänud!
+
+Ülo Maiväli ja Tanel Tenson
+
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
+
+???
+
+Image credit: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sharingan_triple.svg)
 
