@@ -29,7 +29,9 @@ class: inverse, middle, center
 
 - See kehtib ka oomika ekperimentide korral, kus viiakse läbi paraleelselt tuhandeid mõõtmisi ja detekteeritakse samuti kuni tuhandeid efekte      
 
-- väike osa leitud efektidest on tõelised ja teaduslikult huvitavad. Kuidas teha vahet mis on mis?     
+- Väike osa leitud efektidest on tõelised ja teaduslikult huvitavad. Kuidas teha vahet mis on mis -- tõelised efektid *versus* valepositiivsed?     
+
+- Hoidmaks vale positiivsete avastuste arvu kontrolli all, kasutatakse erinevaid meetodeid. Et need meetodid töötaks, on olulised teatud eeldused, näiteks nagu see et P väärtused oleks ühtlase jaotusega
 
 ---
 
@@ -43,7 +45,6 @@ class: inverse, middle, center
 
 - Tulemused tunduvad huvitavad..., kas tasuks replitseerida<sup>1</sup>? 
 - Kuidas hinnata sellise eksperimendi kvaliteeti, kus on testitud paralleelselt tuhandeid hüpoteese?
-
 
 .footnote[[1] Replitseerimine -- uute andmete korjamine kontrollimaks teaduslikke väiteid. Reprodutseerimine keskendub eelkõige andmete analüüsi korratavus. Reprodutseeritavus toetab, kuid ei taga teaduslike väidete paikapidavust.]
 
@@ -98,6 +99,8 @@ knitr::include_graphics("img/murdoch2008-fig2.png")
 ---
 
 ## Test statistik diskreetsest jaotusest 
+
+P väärtuste jaotus ei ole enam ühtlane ning histogrammidega pole enam midagi suurt peale hakata näiteks FDR kontrolli plaanis..
 
 ```{r, echo=FALSE, out.width='60%', fig.align='center'}
 knitr::include_graphics("img/murdoch2008-fig3.png")
