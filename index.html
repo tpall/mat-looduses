@@ -26,21 +26,24 @@ class: inverse, middle, center
 
 ---
 
-## Müra vs signaal
+## Signal vs noise
 
-- Uute teadmiste hankimine sõltub tehniliselt sellest kui edukalt õnnestub andmete mürast signaal ülesse leida  
+- Making discoveries is technically dependent on the ability of our methods to identify signal from overhelming amount of noise
 
-- See kehtib ka oomika ekperimentide korral, kus viiakse läbi paraleelselt tuhandeid mõõtmisi ja detekteeritakse samuti kuni tuhandeid efekte      
+- This pertains also in case of omics experiments (eg. gene expression analysis, proteomics) when thousands of measurements and hypotheses are made and tested in parallel
 
-- Väike osa leitud efektidest on tõelised ja teaduslikult huvitavad. Kuidas teha vahet mis on mis -- tõelised efektid *versus* valepositiivsed?     
+- Small proportion of found effects are real and scientifically interesting. How to sort out real effects from false positives?     
 
-- Hoidmaks vale positiivsete avastuste arvu kontrolli all, kasutatakse erinevaid meetodeid. Et need meetodid töötaks, on olulised teatud eeldused, näiteks nagu see et P väärtused oleks ühtlase jaotusega
+- To keep false positive discoveries under control different multiple comparison adjustments of P values are used (eg. Bonferroni), in case of omics experiments less conservative approaches are **FDR** and **qvalues**. 
+
+- In order to use FDR and qvalues, p values should come from continuous distribution with "flat" shape
 
 ---
 
-## Top table
+## Reproducibility
 
-- Seoses teaduspublikatsioonide kallutatusega, kus teavitatakse ainult nn "edukatest" eksperimentidest, presenteeritakse ka oomika eksperimente teaduspublikatsioonides peamiselt nn. *top* tabelitena artikli lisades, kus on välja toodud mingi väike hulk enim muutunud tunnuseid/geene või geene mida teadlased on suutnud mingilgi moel interpreteerida ja oma mudelisse sobitada
+- Because generally only "successful" experiments get published, P values show bias towards zero in scientific articles and their distribution is truncated after 0.05. 
+- So are truncated also reported omics experiments and only "top tables" with small number of significantly changed genes/features
 
 - Peamiseks tulemuseks on üks-kaks geeni, mis on "edukalt" läbinud ka valideerimise ortogonaalsetes katsetes    
 
@@ -55,19 +58,20 @@ class: inverse, middle, center
 
 ## QC checklist
 
-- Reprodutseeritavus: kas andmed on reanalüüsiks kasutatavad   
+1. Reproducibility: is data usable for reanalysis? (deposition to a public
+database)
 
-- Vastavus (NIH GEO) andmebaasi deponeerimise reeglitega?     
+1. Compliance with GEO database submission requirements?
 
-- Kui palju (GEO) andmesette sisaldab ka P väärtuste tabeleid?     
+1. How many of the GEO submissions provide p value tables?
 
-- P histogrammid – kui palju katseid on hästi/halvasti disainitud või analüüsitud?
+1. P histograms – how many experiments are poorly designed/analysed?
 
 ---
 
 class: inverse, middle, center
 
-# P väärtused
+# P values
 
 ---
 
@@ -149,12 +153,14 @@ class: middle, center
 
 ## GEO data submission rules
 
-- We sought to determine the compliance with the formal requirements for GEO data submission (https://www.ncbi.nlm.nih.gov/geo/info/seq.html). 
-- This pertains to the reproducibitly of data analysis
-- GEO archive has three required components: 
-        1. metadata, 
-        1. processed data, and 
-        1. raw data
+- We sought to determine the compliance with the formal requirements for GEO data submission (https://www.ncbi.nlm.nih.gov/geo/info/seq.html)    
+
+- This pertains to the reproducibitly of data analysis    
+
+- GEO archive has three required components   
+    1. metadata, 
+    1. processed data, and 
+    1. raw data
         
 ---
 
