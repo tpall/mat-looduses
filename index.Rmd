@@ -36,19 +36,17 @@ class: inverse, middle, center
 
 ---
 
-## Reproducibility
+## Reckless use of P values leads to poor replicability
 
-- Because generally only "successful" experiments get published, P values show bias towards zero in scientific articles and their distribution is truncated after 0.05. 
-- So are truncated also reported omics experiments and only "top tables" with small number of significantly changed genes/features
+- Poor replicability<sup>1</sup> and reproducibility<sup>2</sup> have become major concerns in experimental biomedical science   
 
-- Peamiseks tulemuseks on üks-kaks geeni, mis on "edukalt" läbinud ka valideerimise ortogonaalsetes katsetes    
+- There are two major hurdles in the replication: 
+    1. the high cost of actually repeating experiments and 
+    1. lack of consensus on how to measure replicability   
+    
+- This makes it desirable to first estimate *in silico*, which studies are worth replicating in the lab, and how to best replicate them
 
---
-
-- Tulemused tunduvad huvitavad..., kas tasuks replitseerida<sup>1</sup>? 
-- Kuidas hinnata sellise eksperimendi kvaliteeti, kus on testitud paralleelselt tuhandeid hüpoteese?
-
-.footnote[[1] Replitseerimine -- uute andmete korjamine kontrollimaks teaduslikke väiteid. Reprodutseerimine keskendub eelkõige andmete analüüsi korratavus. Reprodutseeritavus toetab, kuid ei taga teaduslike väidete paikapidavust.]
+.footnote[[1] Replicability: reproducing the original data approximately by doing new experiment. [2] Reproducibility: exact repeating of an analysis using original data. Successful reproduction does not generate new evidence in support or against of scientific hypothesis.]
 
 ---
 
@@ -86,7 +84,7 @@ $$Pr(P<p) = Pr(F(T)<p) = Pr(T<F^{-1}(p)) = F(F^{-1}(p)) = p$$
       - when the null hypothesis is true
       - test statistic comes from continuous distribution
 
-"The whole point of using the correct distribution (normal, t, f, chisq, etc.) is to transform from the test statistic to a uniform p-value. If the null hypothesis is false then the distribution of the p-value will (hopefully) be more weighted towards 0." ['Greg snow'](https://stats.stackexchange.com/a/10617)
+> "The whole point of using the correct distribution (normal, t, f, chisq, etc.) is to transform from the test statistic to a uniform p-value. If the null hypothesis is false then the distribution of the p-value will (hopefully) be more weighted towards 0." ['Greg snow'](https://stats.stackexchange.com/a/10617)
 ---
 
 ## Test statistic from continuous distribution
@@ -103,7 +101,7 @@ knitr::include_graphics("img/murdoch2008-fig2.png")
 
 ## Test statistic from discrete distribution
 
-P value distribution is not uniform anymore and cannot be used for FDR adjustment..
+P value distribution is not uniform anymore (eg. contingency table) and cannot be used for FDR adjustment..
 
 ```{r, echo=FALSE, out.width='60%', fig.align='center'}
 knitr::include_graphics("img/murdoch2008-fig3.png")
@@ -299,7 +297,7 @@ background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharin
 
 ## Tänud!
 
-Ülo Maiväli ja Tanel Tenson
+- **Ülo Maiväli**, Tanel Tenson, Institute of Technology, University of Tartu
 
 
 ???
