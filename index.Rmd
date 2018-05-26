@@ -241,6 +241,9 @@ knitr::include_graphics("img/fig6.png")
 knitr::include_graphics("img/fig7.png")
 ```
 
+- The number of [direct target genes of Myc](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0001798) in human cells totals approximately 16% of all human genes
+- [p53 has 346-399 validated target genes](https://www.nature.com/articles/onc2016502) (up to 3500, based on HT experiments)
+- The number of high confidence $\beta$-[catenin target genes is 193](https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-15-74) (up to 1501 and 2389 genes)
 ---
 
 ## Top journals publishing HT-seq data
