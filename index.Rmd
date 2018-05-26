@@ -300,6 +300,8 @@ background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharin
 - **Ülo Maiväli**, Tanel Tenson, Institute of Technology, University of Tartu
 
 
+Presentation at GitHub: https://github.com/tpall/mat-looduses
+
 ???
 
 Image credit: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sharingan_triple.svg)
